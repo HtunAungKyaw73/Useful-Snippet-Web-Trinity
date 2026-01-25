@@ -1,91 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sidebar Test</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <nav>
-        <ul>
+      <ul>
+        <li>
+          <div><a href="#" class="bold">About editions</a></div>
+        </li>
+        <li>
+          <div>
+            <a href="#" class="bold">Chapters</a>
+            <a class="toggle-btn">
+              <i class="fa-solid fa-angle-down" data-menu="chapter"></i>
+            </a>
+          </div>
+          <ul class="toggle-sidebar chapter">
             <li>
-                <div><a href="#" class="bold">About editions</a></div>
+              <div><a href="#">Preface</a></div>
             </li>
             <li>
-                <div>
-                    <a href="#" class="bold">Chapters</a>
-                    <a class="toggle-btn">
-                        <i class="fa-solid fa-angle-down" id="btn-chapter"></i>
-                    </a>
-                </div>
-                <ul class="toggle-sidebar toggle-sidebar-chapter">
-                    <li>
-                        <div><a href="#">Preface</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 1</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 2</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 3</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 4</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 5</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 6</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 7</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 8</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 9</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 10</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 11</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 12</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Chapter 13</a></div>
-                    </li>
-                </ul>
+              <div><a href="#">Chapter 1</a></div>
             </li>
             <li>
-                <div>
-                    <a href="#" class="bold">Appendices</a>
-                    <a class="toggle-btn">
-                        <i class="fa-solid fa-angle-down" id="btn-appendix"></i>
-                    </a>
-                </div>
-                <ul class="toggle-sidebar toggle-sidebar-appendix hide">
-                    <li>
-                        <div><a href="#">Appendix A</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Appendix B</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#">Appendix C</a></div>
-                    </li>
-                </ul>
+              <div><a href="#">Chapter 2</a></div>
             </li>
-        </ul>
+            <li>
+              <div><a href="#">Chapter 3</a></div>
+            </li>
+            <li>
+              <div><a href="#">Chapter 4</a></div>
+            </li>
+            <li>
+              <div><a href="#">Chapter 5</a></div>
+            </li>
+            <li>
+              <div><a href="#">Chapter 6</a></div>
+            </li>
+            <li>
+              <div><a href="#">Chapter 7</a></div>
+            </li>
+            <li>
+              <div><a href="#">Chapter 8</a></div>
+            </li>
+            <li>
+              <div><a href="#">Chapter 9</a></div>
+            </li>
+            <li>
+              <div><a href="#">Chapter 10</a></div>
+            </li>
+            <li>
+              <div><a href="#">Chapter 11</a></div>
+            </li>
+            <li>
+              <div><a href="#">Chapter 12</a></div>
+            </li>
+            <li>
+              <div><a href="#">Chapter 13</a></div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div>
+            <a href="#" class="bold">Appendices</a>
+            <a class="toggle-btn">
+              <i class="fa-solid fa-angle-down" data-menu="appendix"></i>
+            </a>
+          </div>
+          <ul class="toggle-sidebar appendix">
+            <li>
+              <div><a href="#">Appendix A</a></div>
+            </li>
+            <li>
+              <div><a href="#">Appendix B</a></div>
+            </li>
+            <li>
+              <div><a href="#">Appendix C</a></div>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </nav>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

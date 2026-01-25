@@ -1,7 +1,5 @@
-*, *::before, *::after {
+*, *::before, *after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 html {
     scroll-behavior: smooth;
@@ -38,14 +36,45 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 1200px;
     margin: 0 auto;
 }
-header > h1{
-    text-align: center;
-}
+
 main{
     flex-grow: 1; /* for sticky footer */
     padding: 2rem 1rem;
     width: 80%;
-    margin: 0 auto;
+}
+.tabs{
+    border-bottom: 1px solid #4a5568; /* Equivalent to border-gray-700 */
+    margin-bottom: 2rem;
+    width: fit-content;
+    display: flex;
+}
+.tabs .tab-button{
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #fcfcfc; 
+    transition: all 0.3s ease;
+    background-color: #2b87a8;
+}
+
+.tabs .tab-button.active{
+    background-color: rgb(124, 205, 234);
+    color: black;
+}
+
+.tab-content{
+    transition: all 0.3s ease;
+}
+
+.tab-content .content{
+    display: none;
+}
+
+.tab-content .content.active{
+    display: block;
 }
 
 header, footer {

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Elements</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header" aria-label="Main Header">
+        <nav class="menu" aria-label="menu">
+            <ul class="menu-list">
+                <li class="menu-item">List 1<a href="#intro">Intro</a>
+                    <p>
+                        <ul>
+                            <li>Sublist</li>
+                        </ul>
+                    </p>
+                </li>
+                <li class="menu-item">List 2<a href="#about">About</a></li>
+                <li class="menu-item"><a href="#services">Services</a></li>
+                <li class="menu-item"><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="intro">
+            <h2>Welcome to Our Website</h2>
+            <p>This is a sample paragraph to demonstrate the use of semantic elements in HTML.</p>
+            <a href="#header">Back to Top</a>
+            <div>
+                <span>
+                    Span #1, in the div.
+                    <span>Span #2, in the span that's in the div.</span>
+                </span>
+            </div>
+            <span>Span #3, not in the div at all.</span>
+        </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Learn more about our company and what we do.</p>
+            <a href="#header">Back to Top</a>
+        </section>
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>Discover the services we offer to help you succeed.</p>
+            <a href="#header">Back to Top</a>
+        </section>
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <p>Get in touch with us for any inquiries or support.</p>
+            <a href="#header">Back to Top</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Learn Programming Easily</p>
+    </footer>
+</body>
+</html>

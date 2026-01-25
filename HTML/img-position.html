@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Position</title>
+    <style>
+      h2 {
+        margin: 0;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      ul li {
+        overflow: hidden;
+      }
+      .img-container {
+        position: relative;
+      }
+      .img-container .title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        padding: 5px 10px;
+        z-index: 10;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        width: 70%;
+        background-color: #000;
+        overflow: hidden;
+      }
+      .nature {
+        opacity: 0.7;
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+        transition: all 0.3s ease;
+      }
+      .nature:hover {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <li class="img-container">
+          <h2 class="title">Nature</h2>
+          <img
+            class="nature"
+            src="https://plus.unsplash.com/premium_vector-1697729804286-7dd6c1a04597?q=80&w=1070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="nature-img"
+          />
+        </li>
+        <li class="img-container">
+          <h2 class="title">Flowers</h2>
+          <img
+            class="nature"
+            src="https://images.unsplash.com/photo-1768861020377-3fdead073d13?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzM3x8fGVufDB8fHx8fA%3D%3D"
+          />
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

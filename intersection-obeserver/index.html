@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IntersectionObserver Demo</title>
+    <style>
+      body {
+        width: 50%;
+        height: 2000px;
+        margin: 0 auto;
+        font-family: sans-serif;
+      }
+      .box {
+        /* width: 50%; */
+        height: 100vh;
+        margin: 50px;
+        background: lightgray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        transition: background 0.3s ease;
+      }
+      .visible {
+        background: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">Box A (rootMargin: 0px, threshold: 0)</div>
+    <div class="box">Box B (rootMargin: 100px, threshold: 0)</div>
+    <div class="box">Box C (rootMargin: 0px, threshold: 0.5)</div>
+    <div class="box">Box D (rootMargin: 0px, threshold: 1.0)</div>
+
+    <script>
+      const boxes = document.querySelectorAll(".box");
+
+      // Observer 1: Fires as soon as any pixel is visible
+      const observerA = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+            else entry.target.classList.remove("visible");
+          });
+        },
+        { rootMargin: "0px", threshold: 0 },
+      );
+
+      // Observer 2: Preloads 100px before visible
+      const observerB = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+            else entry.target.classList.remove("visible");
+          });
+        },
+        { rootMargin: "100px", threshold: 0 },
+      );
+
+      // Observer 3: Fires when 50% of element is visible
+      const observerC = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+            else entry.target.classList.remove("visible");
+          });
+        },
+        { rootMargin: "0px", threshold: 0.5 },
+      );
+
+      // Observer 4: Fires only when fully visible
+      const observerD = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+            else entry.target.classList.remove("visible");
+          });
+        },
+        { rootMargin: "0px", threshold: 1.0 },
+      );
+
+      observerA.observe(boxes[0]);
+      observerB.observe(boxes[1]);
+      observerC.observe(boxes[2]);
+      observerD.observe(boxes[3]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Units</title>
+    <style>
+      html {
+        font-size: 16px;
+        /* overflow: hidden; */
+      }
+
+      .ems,
+      .rems {
+        border: 1px solid black;
+        height: 50vh;
+        width: 50vw;
+        overflow: clip;
+      }
+
+      .ems li {
+        font-size: 1.3em;
+      }
+
+      .rems li {
+        font-size: 1.3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="ems">
+      <li>One</li>
+      <li>Two</li>
+      <li>
+        Three
+        <ul>
+          <li>Three A</li>
+          <li>
+            Three B
+            <ul>
+              <li>Three B 2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="rems">
+      <li>One</li>
+      <li>Two</li>
+      <li>
+        Three
+        <ul>
+          <li>Three A</li>
+          <li>
+            Three B
+            <ul>
+              <li>Three B 2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

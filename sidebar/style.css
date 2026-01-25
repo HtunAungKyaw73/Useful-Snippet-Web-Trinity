@@ -36,7 +36,6 @@ ul li a{
     color: #333;
     font-size: 16px;
     font-weight: 500;
-    /* border-bottom: 1px solid #f0f0f0; */
 }
 ul li ul li a{
     font-size: 14px;
@@ -44,8 +43,9 @@ ul li ul li a{
 ul li ul li a:hover{
     color: #77af83;
 }
-.toggle-btn > i{
+.toggle-btn{
     cursor: pointer;
+    transform: rotate(270deg);
 }
 .bold{
     font-weight: 700;
@@ -57,9 +57,12 @@ in html tag to make height: auto work*/
 .toggle-sidebar{
     height: 0px;
     overflow: clip;
-    transition: height 300ms ease 300ms;
+    transition: height 0.3s ease;
 }
 .show{
     height: auto;
+}
+.btn-transform{
+    transform: rotate(0deg);
 }
 

@@ -3,47 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popup with JS Intersection Observer</title>
+    <title>Tab Demo</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <h1>Scroll Down to See the Popup</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis ratione necessitatibus facere deleniti quasi quibusdam omnis recusandae modi, sunt qui natus amet, molestiae numquam illum incidunt magni libero perferendis illo!</p>
+    <header>
+        <h1>Tab Demo</h1>
     </header>
     <main>
-        <div class="container">
-            <ul>
-                <li class="item">Item 1</li>
-                <li class="item">Item 2</li>
-                <li class="item">Item 3</li>
-                <li class="item">Item 4</li>
-                <li class="item">Item 5</li>
-                <li class="item">Item 6</li>
-                <li class="item">Item 7</li>
-                <li class="item">Item 8</li>
-                <li class="item">Item 9</li>
-                <li class="item">Item 10</li>
-                <li class="item">Item 11</li>
-                <li class="item">Item 12</li>
-                <li class="item">Item 13</li>
-                <li class="item">Item 14</li>
-                <li class="item">Item 15</li>
-                <li class="item">Item 16</li>
-                <li class="item">Item 17</li>
-                <li class="item">Item 18</li>
-                <li class="item">Item 19</li>
-                <li class="item">Item 20</li>
-                <li class="item">Item 21</li>
-                <li class="item">Item 22</li>
-                <li class="item">Item 23</li>
-                <li class="item">Item 24</li>
-                <li class="item">Item 25</li>
-            </ul>
-        </div>
+       <div class="container">
+           <div class="tabs">
+               <a class="tab-button active" data-tab="tab1">Tab 1</a>
+               <a class="tab-button" data-tab="tab2">Tab 2</a>
+               <a class="tab-button" data-tab="tab3">Tab 3</a>
+           </div>
+           <div class="tab-content">
+               <div id="tab1" class="content active">
+                   <h2>Content for Tab 1</h2>
+                   <p>This is the content for the first tab.</p>
+               </div>
+               <div id="tab2" class="content">
+                   <h2>Content for Tab 2</h2>
+                   <p>This is the content for the second tab.</p>
+               </div>
+               <div id="tab3" class="content">
+                   <h2>Content for Tab 3</h2>
+                   <p>This is the content for the third tab.</p>
+               </div>
+           </div>
+       </div>
     </main>
     <footer>
         <div class="footer-container">

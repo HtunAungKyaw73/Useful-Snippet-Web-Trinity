@@ -1,8 +1,10 @@
-const toggleBtn = document.querySelectorAll('.toggle-btn');
+const toggleBtn = document.querySelectorAll(".toggle-btn");
 
-toggleBtn.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        let subMenu = document.querySelector('.toggle-sidebar-'+e.target.id.split('-')[1]);
-        subMenu.classList.toggle('show');
-    });
+toggleBtn.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    console.log(e.target.dataset.menu);
+    btn.classList.toggle("btn-transform");
+    let subMenu = document.querySelector("." + e.target.dataset.menu);
+    subMenu.classList.toggle("show");
+  });
 });

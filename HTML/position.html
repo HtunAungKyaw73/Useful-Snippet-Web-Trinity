@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Positioning</title>
+    <style>
+      h1 {
+        position: sticky;
+        top: 0px;
+      }
+      .container {
+        height: 200vh;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        border: 1px solid red;
+      }
+      .box {
+        position: fixed;
+        z-index: 10;
+        /* top: 90px; */
+        /* left: 0px; */
+        bottom: 0px;
+        left: 10px;
+        /* right: 0px; */
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        background-color: lightblue;
+      }
+      .box + .box {
+        margin-top: 0.7rem;
+      }
+      .box:nth-child(2) {
+        position: absolute;
+        z-index: 2;
+        top: 220px;
+        left: 220px;
+        background-color: lightcoral;
+      }
+      .box:nth-child(3) {
+        position: absolute;
+        top: 440px;
+        left: 0px;
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Positioning Example</h1>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

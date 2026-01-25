@@ -41,6 +41,13 @@ header{
     max-width: 1200px;
     margin: 0 auto;
 }
+.header{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 10px;
+    background-color: rgb(248, 200, 128);
+}
 /*CSS for Pop-up on Scroll*/
 
 ul{
@@ -53,12 +60,15 @@ ul li {
     padding: 20px;
     background-color: #f0f0f0;
     border-radius: 5px;
-    text-align: center;
 }
 .item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .visible{
     opacity: 1;
