@@ -1,0 +1,147 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+    height: 100%; /* for sticky footer */
+}
+body{
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* for sticky footer */
+}
+input, button, textarea, select {
+    font: inherit;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+p{
+    text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+header > h1{
+    text-align: center;
+}
+main{
+    flex-grow: 1; /* for sticky footer */
+    padding: 2rem 1rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+header, footer {
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: #2d3748;
+    color: #fff;
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06); /* Shadow */
+    padding: 1.5rem 1rem;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+.download-bar{
+    width: 300px;
+    background-color: #ddd;
+    height: 15px;
+    border-radius: 15px;
+}
+.download-progress{
+    background-color: rgba(2, 201, 188, 0.704);
+    width: 0px;
+    height: 15px;
+    border-radius: 15px;
+    transition: all 0.1s ease;
+}
+.progress-number{
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-weight: bold;
+}
+/* Footer styling */
+.footer-container {
+    max-width: 80rem; /* Equivalent to max-w-7xl */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.copyright {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.copyright p {
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    color: #a0aec0; /* Equivalent to text-gray-400 */
+}
+
+.social-media {
+    display: flex;
+}
+
+.social-media a {
+    color: #a0aec0; /* Equivalent to text-gray-400 */
+    margin: 0 0.75rem; /* Spacing between icons */
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #fff;
+}
+
+.social-media svg {
+    width: 1.5rem; /* Equivalent to w-6 */
+    height: 1.5rem; /* Equivalent to h-6 */
+    fill: currentColor;
+}
+
+/* Screen reader only class for accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Responsive adjustments for medium screens and up */
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+    }
+    .copyright {
+        text-align: left;
+        margin-bottom: 0;
+    }
+}
