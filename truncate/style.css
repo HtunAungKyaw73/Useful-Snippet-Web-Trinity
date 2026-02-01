@@ -56,6 +56,9 @@ header, footer {
 /* Truncate text styling */
 .truncate {
     padding: 0.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* Footer styling */

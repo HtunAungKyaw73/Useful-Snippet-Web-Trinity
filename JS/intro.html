@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Intro</title>
+  </head>
+  <body>
+    <span class="container">H</span>
+    <span class="container">E</span>
+    <span class="container">L</span>
+    <span class="container">L</span>
+    <span class="container">O</span>
+    <script>
+      console.log("Hello World..");
+      console.log(window.location);
+      console.log(document);
+      console.log(document.querySelectorAll(".container"));
+      document
+        .querySelectorAll(".container")
+        .forEach((element) => (element.style.backgroundColor = "red"));
+    </script>
+  </body>
+</html>

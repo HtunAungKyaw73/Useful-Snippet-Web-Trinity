@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Functions</title>
+  </head>
+  <body>
+    <span class="container first" role="title">H</span>
+    <span class="container">E</span>
+    <span class="container">L</span>
+    <span class="container">L</span>
+    <span class="container">O</span>
+    <script>
+      const elements = document.querySelectorAll(".container");
+      elements.forEach(function (element) {
+        console.log(element.outerHTML);
+      });
+
+      elements.forEach((ele) => console.log(ele));
+    </script>
+  </body>
+</html>
