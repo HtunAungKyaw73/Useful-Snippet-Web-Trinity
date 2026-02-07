@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discrete Value Transition</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        width: 500px;
+        padding: 3rem;
+        margin: 0 auto;
+      }
+      .dialog {
+        opacity: 0;
+        transform: translateX(-100%);
+        display: none;
+
+        transition:
+          opacity 0.3s,
+          transform 0.3s,
+          display 0.3s allow-discrete;
+      }
+
+      .dialog.open {
+        opacity: 1;
+        transform: translateX(0);
+        display: block;
+      }
+
+      .shrink {
+        transform: scale(0.95);
+      }
+
+      #toggleBtn {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        background-color: #0078d4;
+        color: white;
+        border-radius: 4px;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      /* Starting styles */
+      @starting-style {
+        .dialog.open {
+          opacity: 0;
+          transform: translateY(-100%);
+          /* transform: translateX(-100%); */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button id="toggleBtn">Toggle Dialog</button>
+      <div id="dialog" class="dialog">
+        <p>This is a dialog box with discrete value transition!</p>
+      </div>
+      <!-- <div>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque,
+          veniam! Laborum, facilis fuga expedita quos animi natus debitis.
+          Quisquam eius perferendis ullam inventore facere ex, incidunt pariatur
+          aliquam dolor officiis?
+        </p>
+      </div> -->
+
+      <script>
+        const toggleBtn = document.getElementById("toggleBtn");
+        const dialog = document.getElementById("dialog");
+
+        toggleBtn.addEventListener("click", () => {
+          toggleBtn.classList.toggle("shrink");
+          dialog.classList.toggle("open");
+        });
+      </script>
+    </div>
+  </body>
+</html>

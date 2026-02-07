@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Toggle with View Transition API</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg-color: #ffffff;
+        --text-color: #1a1a1a;
+        --card-bg: #f5f5f5;
+        --toggle-bg: #1a1a1a;
+        --toggle-icon: #ffffff;
+      }
+
+      [data-theme="dark"] {
+        --bg-color: #1a1a1a;
+        --text-color: #ffffff;
+        --card-bg: #2a2a2a;
+        --toggle-bg: #ffffff;
+        --toggle-icon: #1a1a1a;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      /* View Transition API styles */
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation: none;
+        mix-blend-mode: normal;
+      }
+
+      ::view-transition-old(root) {
+        z-index: 1;
+      }
+
+      ::view-transition-new(root) {
+        z-index: 9999;
+      }
+
+      /* Circular clip-path animation */
+      [data-theme="dark"]::view-transition-new(root) {
+        animation: circle-in 0.6s ease-in-out;
+      }
+
+      [data-theme="light"]::view-transition-new(root) {
+        animation: circle-in 0.6s ease-in-out;
+      }
+
+      @keyframes circle-in {
+        from {
+          clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
+        }
+        to {
+          clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
+        }
+      }
+
+      /* Theme toggle button */
+      .theme-toggle {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background-color: var(--toggle-bg);
+        color: var(--toggle-icon);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+        z-index: 10000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1);
+      }
+
+      .theme-toggle:active {
+        transform: scale(0.95);
+      }
+
+      /* Content styling */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .card {
+        background-color: var(--card-bg);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .card p {
+        line-height: 1.6;
+        opacity: 0.8;
+      }
+
+      .intro {
+        text-align: center;
+        margin: 4rem 0;
+        font-size: 1.2rem;
+        opacity: 0.8;
+      }
+
+      .note {
+        background: rgba(255, 196, 0, 0.1);
+        border-left: 4px solid #ffc400;
+        padding: 1rem;
+        margin: 2rem 0;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="icon">☀️</span>
+    </button>
+
+    <div class="container">
+      <h1>View Transition API Theme Toggle</h1>
+
+      <p class="intro">
+        Click the toggle button to see the View Transition API in action!
+      </p>
+
+      <div class="note">
+        <strong>Note:</strong> The View Transition API is currently supported in
+        Chromium-based browsers (Chrome, Edge, Opera). In unsupported browsers,
+        the theme will still change but without the animation.
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h2>View Transition API</h2>
+          <p>
+            Uses the modern View Transition API for smooth, performant
+            animations between state changes.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Cleaner Code</h2>
+          <p>
+            Much simpler implementation compared to manual CSS transitions - the
+            browser handles the complexity!
+          </p>
+        </div>
+        <div class="card">
+          <h2>Position-Aware</h2>
+          <p>
+            The animation still originates from your click position for a
+            natural feel.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Progressive Enhancement</h2>
+          <p>Gracefully degrades in browsers that don't support the API yet.</p>
+        </div>
+        <div class="card">
+          <h2>GPU Accelerated</h2>
+          <p>
+            The View Transition API is optimized for performance and runs on the
+            GPU.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Future-Proof</h2>
+          <p>
+            Built on web standards that will continue to evolve and improve over
+            time.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const themeToggle = document.getElementById("themeToggle");
+      const icon = themeToggle.querySelector(".icon");
+      const html = document.documentElement;
+
+      // Get saved theme or use system preference
+      const savedTheme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+
+      // Set initial theme
+      html.setAttribute("data-theme", savedTheme);
+      icon.textContent = savedTheme === "dark" ? "🌙" : "☀️";
+
+      themeToggle.addEventListener("click", (e) => {
+        // Get click position as percentage
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+
+        // Set CSS custom properties for animation origin
+        html.style.setProperty("--x", `${x}%`);
+        html.style.setProperty("--y", `${y}%`);
+
+        // Get current theme
+        const currentTheme = html.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        // Check if View Transition API is supported
+        if (!document.startViewTransition) {
+          // Fallback for unsupported browsers
+          html.setAttribute("data-theme", newTheme);
+          icon.textContent = newTheme === "dark" ? "🌙" : "☀️";
+          localStorage.setItem("theme", newTheme);
+          return;
+        }
+
+        // Use View Transition API
+        const transition = document.startViewTransition(() => {
+          html.setAttribute("data-theme", newTheme);
+          icon.textContent = newTheme === "dark" ? "🌙" : "☀️";
+        });
+
+        // Save to localStorage after transition
+        transition.finished.then(() => {
+          localStorage.setItem("theme", newTheme);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Toggle with Circular Transition</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg-color: #ffffff;
+        --text-color: #1a1a1a;
+        --card-bg: #f5f5f5;
+        --toggle-bg: #1a1a1a;
+        --toggle-icon: #ffffff;
+      }
+
+      [data-theme="dark"] {
+        --bg-color: #1a1a1a;
+        --text-color: #ffffff;
+        --card-bg: #2a2a2a;
+        --toggle-bg: #ffffff;
+        --toggle-icon: #1a1a1a;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      /* Circular transition overlay */
+      .theme-transition {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .theme-transition::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background-color: var(--bg-color);
+        top: var(--y, 50%);
+        left: var(--x, 50%);
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.6s ease-in-out,
+          height 0.6s ease-in-out;
+      }
+
+      .theme-transition.active::before {
+        width: 300vmax;
+        height: 300vmax;
+      }
+
+      /* Theme toggle button */
+      .theme-toggle {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background-color: var(--toggle-bg);
+        color: var(--toggle-icon);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+        z-index: 10000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1);
+      }
+
+      .theme-toggle:active {
+        transform: scale(0.95);
+      }
+
+      /* Content styling */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        z-index: 200;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .card {
+        background-color: var(--card-bg);
+        padding: 2rem;
+        border-radius: 12px;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        z-index: 200;
+      }
+
+      .card p {
+        line-height: 1.6;
+        opacity: 0.8;
+        z-index: 200;
+      }
+
+      .intro {
+        text-align: center;
+        margin: 4rem 0;
+        font-size: 1.2rem;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="theme-transition"></div>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="icon">☀️</span>
+    </button>
+
+    <div class="container">
+      <h1>Circular Theme Toggle Transition</h1>
+
+      <p class="intro">
+        Click the toggle button in the top-right corner to experience the smooth
+        circular wipe transition effect!
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h2>Beautiful Transitions</h2>
+          <p>
+            The circular wipe effect creates a smooth and visually appealing
+            transition between light and dark themes.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Pure CSS</h2>
+          <p>
+            This effect is achieved using CSS custom properties and transform
+            animations, with minimal JavaScript.
+          </p>
+        </div>
+        <div class="card">
+          <h2>User Experience</h2>
+          <p>
+            The animation originates from the button click position, creating an
+            intuitive and delightful user experience.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Performant</h2>
+          <p>
+            Using CSS transforms and custom properties ensures smooth 60fps
+            animations even on lower-end devices.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Accessible</h2>
+          <p>
+            The theme preference is saved to localStorage and respects user's
+            system preferences.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Customizable</h2>
+          <p>
+            Easy to customize colors, animation duration, and easing functions
+            to match your brand.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const themeToggle = document.getElementById("themeToggle");
+      const themeTransition = document.querySelector(".theme-transition");
+      const icon = themeToggle.querySelector(".icon");
+      const html = document.documentElement;
+
+      // Get saved theme or use system preference
+      const savedTheme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+
+      // Set initial theme
+      html.setAttribute("data-theme", savedTheme);
+      icon.textContent = savedTheme === "dark" ? "🌙" : "☀️";
+
+      themeToggle.addEventListener("click", (e) => {
+        // Get click position
+        const x = e.clientX;
+        const y = e.clientY;
+
+        // Set custom properties for the animation origin
+        themeTransition.style.setProperty("--x", `${x}px`);
+        themeTransition.style.setProperty("--y", `${y}px`);
+
+        // Get current theme
+        const currentTheme = html.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        // Trigger transition
+        themeTransition.classList.add("active");
+
+        // Change theme after a short delay (to let the animation start)
+        setTimeout(() => {
+          html.setAttribute("data-theme", newTheme);
+          icon.textContent = newTheme === "dark" ? "🌙" : "☀️";
+          localStorage.setItem("theme", newTheme);
+        }, 50);
+
+        // Remove active class after animation completes
+        setTimeout(() => {
+          themeTransition.classList.remove("active");
+        }, 650);
+      });
+    </script>
+  </body>
+</html>

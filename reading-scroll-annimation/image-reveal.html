@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Reveal On View Animation</title>
+  </head>
+  <style>
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    @keyframes reveal {
+      from {
+        /* opacity: 0; */
+        /* clip-path: inset(100% 100% 0% 0%); */
+        clip-path: circle(0%);
+      }
+      to {
+        /* opacity: 1; */
+        /* clip-path: inset(0% 0% 0% 0%); */
+        clip-path: circle(100%);
+      }
+    }
+
+    .reveal-img {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 25% cover 50%;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Image Reveal On View Animation</h1>
+      <p>
+        Scroll down to see the image reveal animation as it comes into view.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam. Lorem ipsum dolor sit, amet consectetur adipisicing
+        elit. Nesciunt beatae, quasi corrupti quae incidunt repellat, tempore
+        animi deleniti, asperiores alias dolorum? Culpa, explicabo magni quasi
+        vitae ex odit id placeat.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam. Lorem ipsum, dolor sit amet consectetur adipisicing
+        elit. Voluptatibus aspernatur pariatur, cum rerum odio voluptates
+        tenetur ullam explicabo ex quisquam, dignissimos reprehenderit vitae
+        nulla natus quia repellendus impedit, molestias exercitationem.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam neque
+        autem libero, ducimus dicta quibusdam voluptatem eaque molestiae ea
+        odio? Non porro aut sunt ipsam voluptates beatae maxime voluptatem
+        repudiandae? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Harum est quae, similique, id soluta unde voluptates pariatur quasi
+        aliquam fugit ipsa nobis facere iste. Ad optio aliquam corporis ullam
+        tenetur.
+      </p>
+      <img
+        src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+        alt=""
+        class="reveal-img"
+      />
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam. Lorem ipsum, dolor sit amet consectetur adipisicing
+        elit. Voluptatibus aspernatur pariatur, cum rerum odio voluptates
+        tenetur ullam explicabo ex quisquam, dignissimos reprehenderit vitae
+        nulla natus quia repellendus impedit, molestias exercitationem.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam neque
+        autem libero, ducimus dicta quibusdam voluptatem eaque molestiae ea
+        odio? Non porro aut sunt ipsam voluptates beatae maxime voluptatem
+        repudiandae? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Harum est quae, similique, id soluta unde voluptates pariatur quasi
+        aliquam fugit ipsa nobis facere iste. Ad optio aliquam corporis ullam
+        tenetur.
+      </p>
+      <img
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+        alt=""
+        class="reveal-img"
+      />
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam. Lorem ipsum, dolor sit amet consectetur adipisicing
+        elit. Voluptatibus aspernatur pariatur, cum rerum odio voluptates
+        tenetur ullam explicabo ex quisquam, dignissimos reprehenderit vitae
+        nulla natus quia repellendus impedit, molestias exercitationem.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur quae
+        distinctio optio ex reiciendis sed perspiciatis at eligendi voluptates
+        cumque mollitia, beatae ipsam laudantium neque vero enim laboriosam
+        molestias quisquam.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam neque
+        autem libero, ducimus dicta quibusdam voluptatem eaque molestiae ea
+        odio? Non porro aut sunt ipsam voluptates beatae maxime voluptatem
+        repudiandae? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Harum est quae, similique, id soluta unde voluptates pariatur quasi
+        aliquam fugit ipsa nobis facere iste. Ad optio aliquam corporis ullam
+        tenetur.
+      </p>
+    </div>
+  </body>
+</html>

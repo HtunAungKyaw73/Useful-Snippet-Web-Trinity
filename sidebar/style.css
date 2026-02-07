@@ -24,6 +24,10 @@ a{
     text-decoration: none;
     color: inherit;
 }
+a.bold:hover{
+    text-decoration: wavy underline;
+    text-decoration-color: red;
+}
 img{
     max-width: 100%;
 }
@@ -46,6 +50,7 @@ ul li ul li a:hover{
 .toggle-btn{
     cursor: pointer;
     transform: rotate(270deg);
+    transition: transform 0.3s ease;
 }
 .bold{
     font-weight: 700;

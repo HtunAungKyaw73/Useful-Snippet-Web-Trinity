@@ -20,9 +20,22 @@
       <div class="container">
         <div class="download">
           <div class="download-bar">
-            <div class="download-progress"></div>
+            <div
+              class="download-progress"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+            ></div>
           </div>
           <p class="progress-number"></p>
+        </div>
+        <div class="text">
+          <button class="btn">Download</button>
+          <div class="downloading-text hide">
+            <h2>Downloading File...</h2>
+            <p>Please wait while your file is being downloaded.</p>
+          </div>
         </div>
       </div>
     </main>
